@@ -1,0 +1,3 @@
+[submodule "Docker-Drupal-Demo"]
+	path = Docker-Drupal-Demo
+	url = https://github.com/Web-Strategy-Team/Docker-Drupal-Demo

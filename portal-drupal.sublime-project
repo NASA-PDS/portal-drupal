@@ -1,0 +1,24 @@
+{
+   "folders" : [
+      {
+         "file_exclude_patterns" : [
+            "*.sublime-*",
+            ".DS_Store",
+            ".terraform.lock.hcl",
+	    "terraform.tfstate*",
+            ".terraform.tfstate*"
+         ],
+         "folder_exclude_patterns" : [
+            ".terraform",
+            "__pycache__",
+            ".venv",
+            "venv",
+            "dist",
+            "build",
+            "*.egg-info",
+            "build"
+         ],
+         "path" : "."
+      }
+   ]
+}
