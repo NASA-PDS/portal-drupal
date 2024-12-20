@@ -1,3 +1,8 @@
+# MySQL
+# =====
+#
+# More to come.
+
 # Security group for RDS that only allows access from the Apache SG
 resource "aws_security_group" "rds_sg" {
   name        = "rds_sg"

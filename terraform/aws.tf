@@ -1,3 +1,8 @@
+# AWS
+# ===
+#
+# Amazon Web Services: the basics.
+
 provider "aws" {
   region = var.aws_region
 }

@@ -1,3 +1,8 @@
+# Variables
+# =========
+#
+# Things you may want to override via tfvars, env vars, etc.
+
 variable "aws_region" {
   description = "The AWS region to deploy in"
   type        = string

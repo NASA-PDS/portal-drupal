@@ -1,3 +1,11 @@
+# Drupal
+# ======
+#
+# This is a placeholder: it starts an EC2 with a "hello world" index.html in Apache
+# HTTPD.
+#
+# The real one will use an ECS with the Apache+Drupal image built via GitHub Actions.
+
 # Create an IAM role for the EC2 instance (for demo purposes? or to
 # prove we can do it?)
 resource "aws_iam_role" "ec2_role" {

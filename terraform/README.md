@@ -1,5 +1,7 @@
 # Terraform
 
+More to come.
+
 
 ## SSH key pair
 
@@ -9,14 +11,14 @@ Generated an elliptical key via
 
 For me, I used my personal email address.
 
-Registered with AWS via
+Most will register with AWS via:
 
     aws ec2 import-key-pair --key-name KEYNAME --public-key-material fileb://~/.ssh/id_rsa.pub
 
-For me, I used `KEYNAME` = `SKAWS`.
+For me, I used `KEYNAME` = `SKAWS` and the `ed25519` key, so:
 
+    aws ec2 import-key-pair --key-name SKAWS --public-key-material fileb://~/.ssh/id_ed25519_aws.pub
 
-aws ec2 import-key-pair --key-name SKAWS --public-key-material fileb://~/.ssh/id_ed25519_aws.pub
 
 ## Env vars
 
@@ -38,4 +40,4 @@ If you get the arm64 not supported for template, try:
     kreuzwerker/taps/m1-terraform-provider-helper
     m1-terraform-provider-helper activate
     m1-terraform-provider-helper install hashicorp/template -v 2.2.0
-    tflocal init
+    terraform init
