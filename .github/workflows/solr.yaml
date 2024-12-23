@@ -68,8 +68,6 @@ jobs:
                     platforms: linux/amd64,linux/arm64
                     push: true
                     tags: ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.us-west-2.amazonaws.com/solr-portal:latest
-                    cache-to: type=registry,ref=${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.us-west-2.amazonaws.com/solr-portal:cache,mode=max
-                    cache-from: type=registry,ref=${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.us-west-2.amazonaws.com/solr-portal:cache
 
 ...
 
