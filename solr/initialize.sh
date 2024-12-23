@@ -27,4 +27,3 @@
 # Make the PDS core.
 
 exec /opt/docker-solr/scripts/precreate-core PDS
-
