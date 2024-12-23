@@ -1,0 +1,76 @@
+# Solr Image
+# ==========
+#
+# This workflow builds and registers an image of the Solr search engine customized for
+# the Planetary Data System's portal.
+
+---
+
+name: 🌞 Solr Image
+
+
+# Triggers
+# --------
+#
+# Run on any push to the Solr subdirectory, or via another workflow via the
+# `workflow_dispatch` trigger.
+
+on:
+    push:
+        branches:
+            -   main
+        paths:
+            -   'solr/**'
+workflow_dispatch:
+
+
+# Jobs
+# ----
+#
+# What to do.
+
+jobs:
+    solr-image:
+        name: 🌞 Solr Image
+        runs-on: ubuntu-latest
+        steps:
+            -
+                name: 📚 Repository Checkout
+                uses: actions/checkout@v3
+                with:
+                    submodules: true
+                    token: ${{secrets.GITHUB_TOKEN}}
+                    fetch-depth: 0
+            -
+                name: 🏞️ AWS Identification
+                uses: aws-actions/configure-aws-credentials@v3
+                with:
+                    aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+                    aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+                    aws-region: us-west-2
+            -
+                name: 🪪 ECR Identification
+                uses: docker/login-action@v2
+                with:
+                    registry: ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.us-west-2.amazonaws.com
+            -
+                name: 🎰 QEMU Multiple Machine Emulation
+                uses: docker/setup-qemu-action@v2
+            -
+                name: 🚢 Docker Buildx
+                uses: docker/setup-buildx-action@v2
+            -
+                name: 🧱 Image Construction and Publication
+                uses: docker/build-push-action@v5
+                with:
+                    context: .
+                    file: solr/Dockerfile
+                    platforms: linux/amd64,linux/arm64
+                    push: true
+                    tags: ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.us-west-2.amazonaws.com/solr-portal:latest
+                    cache-to: type=registry,ref=${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.us-west-2.amazonaws.com/solr-portal:cache,mode=max
+                    cache-from: type=registry,ref=${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.us-west-2.amazonaws.com/solr-portal:cache
+
+...
+
+# -*- mode: YAML; tab-width: 4 -*-
