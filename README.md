@@ -42,7 +42,7 @@ TBD.
 | `AWS_ACCOUNT_ID`        | To generate the URI to the ECR for container image publication |
 | `AWS_ACCESS_KEY_ID`     | Identification for cloud services                              |
 | `AWS_SECRET_ACCESS_KEY` | Credential for cloud services                                  |
-| `WEB_STRATEGY_TEAM_PAT` | So GitHub Actions can clone private submodule                  |
+| `WEB_STRATEGY_TEAM_PAT` | So GitHub Actions can clone private submodule⁴                 |
 
 
 ## 🧑‍🔧 Manual Deployment
@@ -118,3 +118,5 @@ The project is licensed under the [Apache version 2](LICENSE.md) license.
 ²The 🥀 emoji is synonymous with "droop", which sounds like part of the word "Drupal" 🤭
 
 ³It's actually an _image_ registry; it doesn't register running containers.
+
+⁴This is currently set one of @nutjob4life's personal access tokens because we know his account has access to the Web Strategy Team's repositories. We should switch to a "service" account like `pdsen-ci` and ask if the Web Strategy Team will give it access.
