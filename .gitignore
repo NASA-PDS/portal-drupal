@@ -16,3 +16,7 @@ terraform.tfvars
 # OS specifics
 .DS_Store
 ._.*
+
+# Developer specifics
+.env.csh
+.env.sh
