@@ -9,6 +9,11 @@ variable "aws_region" {
   default     = "us-west-2"
 }
 
+variable "aws_account_id" {
+  description = "AWS account number that owns all this"
+  type        = string
+}
+
 variable "drupal_instance_type" {
   description = "EC2 instance type"
   type        = string

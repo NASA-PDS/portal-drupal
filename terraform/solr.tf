@@ -5,7 +5,7 @@
 
 locals {
   solr_port      = 8983
-  solr_version   = "7"
+  solr_version   = "latest"
   namespace_name = "drupalservices.local"
 }
 
@@ -55,7 +55,7 @@ resource "aws_ecs_task_definition" "solr_task" {
   container_definitions = jsonencode([
     {
       "name" : "solr",
-      "image" : "solr:${local.solr_version}",
+      "image" : "${var.aws_account_id}.dkr.ecr.${var.aws_region}.amazonaws.com/solr-portal:${local.solr_version}",
       "essential" : true,
       "portMappings" : [
         {
